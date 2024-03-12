@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    color: #212529;
+  }
+  
+  header {
+    background-color: #212529;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  main {
+    padding: 20px;
+    height: 200vh;
+  }
+  
+  #wrapper {
+    display: flex;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  #sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /*   left: 0; */
+    width: 200px;
+    height: 100vh;
+    background-color: #dee2e6;
+    overflow: auto;
+    /*   padding: 10px; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  
+  main {
+    flex: 1; /* Allow main content to fill remaining space */
+    padding: 20px;
+  }
+  
+  main section {
+    display: none; /* Hide all sections initially */
+    text-align: center;
+  }
+  
+  h1 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  
+  li {
+    list-style: none;
+    padding: 10px 0;
+    width: 100%;
+  }
+  
+  nav a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+  }
+  
+  /* .active {
+    background: red;
+  } */
+  
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #menu {
+    border: none;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  #menu:hover {
+    background: white;
+    padding: 3px;
+    border-radius: 3px;
+  }
+  
+  .menu-wrapper {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .wrapper {
+      position: absolute;
+    }
+  
+    #sidebar {
+      display: none;
+      position: absolute;
+      top: 76px;
+      z-index: 1;
+    }
+  
+    .menu-wrapper {
+      display: block;
+    }
+  }
+  
+  nav ul ul {
+    display: none;
+  }
+  
+  .active-submenu {
+    display: block;
+  }
+  
