@@ -11,7 +11,8 @@ if (lastVisitedSectionId) {
 } else {
   // Choose a default section (the first section)
   sections[0].style.display = "block";
-  sections[0].style.backgroundColor = "white";
+  sidebarLinks[0].style.borderLeft = "5px solid #212529";
+  sidebarLinks[0].style.backgroundColor = "#f8f9fa";
 }
 
 // Find the currently active link (based on lastVisitedSection)
@@ -19,8 +20,19 @@ const activeLink = document.querySelector(
   `nav a[href="#${lastVisitedSectionId}"]`
 );
 if (activeLink) {
-  activeLink.style.backgroundColor = "white"; // Set background color directly
-}
+    // Remove active styling from all links
+    sidebarLinks.forEach((link) => {
+      link.style.backgroundColor = ""; // Reset background color
+      link.style.borderLeft = ""; // Reset border
+    });
+  
+    // Set active styling to the default active link
+    activeLink.style.backgroundColor = "#f8f9fa";
+    activeLink.style.borderLeft = "5px solid #212529";
+  
+    // Update localStorage with the visited section ID
+    localStorage.setItem("lastVisitedSection", activeLink.getAttribute('href').substring(1));
+  }
 
 sidebarLinks.forEach((link) => {
   link.addEventListener("click", function (event) {
@@ -29,11 +41,12 @@ sidebarLinks.forEach((link) => {
     // Remove active styling from all links
     sidebarLinks.forEach((link) => {
       link.style.backgroundColor = ""; // Reset background color
+      link.style.borderLeft = "";
     });
 
-    sidebarLinks.forEach((link) => {
-        link.style.borderLeft = ""; // Reset background color
-      });
+    // sidebarLinks.forEach((link) => {
+    //     link.style.borderLeft = ""; // Reset background color
+    //   });
 
     // Hide all sections
     sections.forEach((section) => {
@@ -49,7 +62,7 @@ sidebarLinks.forEach((link) => {
 
     // Add active styling to the clicked link
     this.style.backgroundColor = "#f8f9fa";
-    this.style.borderLeft = "5px solid #212529" // Set background color directly
+    this.style.borderLeft = "5px solid #212529" 
 
     // Update localStorage with the visited section ID
     localStorage.setItem("lastVisitedSection", targetSectionId);

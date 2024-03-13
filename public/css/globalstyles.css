@@ -1,0 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --primary-color: #212529;
+    --primary-color-hover: #343a40;
+    --secondary-color: #dee2e6;
+    --sidebar-background: #dee2e6;
+  }

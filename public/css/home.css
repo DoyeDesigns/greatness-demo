@@ -1,17 +1,13 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
+@import url('globalstyles.css');
+ 
+ body {
     margin: 0;
     padding: 0;
-    color: #212529;
+    color: var(--primary-color);
   }
   
   header {
-    background-color: #212529;
+    background-color: var(--primary-color);
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -36,7 +32,7 @@
     /*   left: 0; */
     width: 200px;
     height: 100vh;
-    background-color: #dee2e6;
+    background-color: var(--sidebar-background);
     overflow: auto;
     /*   padding: 10px; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -52,11 +48,6 @@
     text-align: center;
   }
   
-  h1 {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
   
   li {
     list-style: none;
@@ -65,7 +56,6 @@
   }
   
   nav a {
-    display: block;
     text-decoration: none;
     padding: 10px;
     width: 100%;
@@ -74,10 +64,16 @@
     gap: 10px;
     color: black;
   }
+
+  nav a:hover{
+    background-color: var(--secondary-color);
+  }
+
+  nav a i {
+    margin-left: 5px;
+    margin-top: 3px;
+  }
   
-  /* .active {
-    background: red;
-  } */
   
   ul {
     margin: 0;
