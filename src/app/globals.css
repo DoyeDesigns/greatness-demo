@@ -10,6 +10,6 @@ body {
     @apply text-primary-color-hover font-bold bg-secondary-color border-l-4 border-primary-color;
 }
 
-.input {
+/* .input {
     @apply mb-4 w-full rounded-sm pl-2 h-8;
-}
+} */
