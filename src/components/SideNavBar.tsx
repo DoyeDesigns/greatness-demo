@@ -1,46 +1,87 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
-import { usePathname, useRouter } from "next/navigation";
-import { navLinks } from '@/data/navigation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { config } from '@fortawesome/fontawesome-svg-core';
+import React, {useState} from 'react'
+import { Nav } from './nav'
 
-config.autoAddCss = false;
+type Props = {}
 
-const SideNavBar: React.FC = () => {
-  const currentPathname = usePathname();
-  const router = useRouter()
-  const [activeLinkIndex, setActiveLinkIndex] = useState<number | null>(null);
+import {
+    LayoutDashboard,
+    Globe,
+    FolderOpen,
+    Target,
+    ListChecks,
+    SlidersHorizontal,
+    ChevronRight,
+    ChevronLeft,
+    User2,
+  } from "lucide-react"
+import { Button } from './ui/button'
 
-  useEffect(() => {
-    const index = navLinks.findIndex(link => link.path === currentPathname);
-    if (index !== -1) {
-      setActiveLinkIndex(index);
-    }
-  }, [currentPathname, navLinks]);
+export default function SideNavBar({}: Props) {
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const handleLinkClick = (index: number) => {
-    setActiveLinkIndex(index);
-    router.push(navLinks[index].path);
-  };
-
-  return currentPathname !== '/login' ? (
-    <aside className="bg-accent-color h-screen w-[200px]">
-      <nav id="sidebar" className="">
-        <ul className="">
-          {navLinks.map((link, index) => (
-            <li key={index} className={`hover:cursor-pointer hover:bg-secondary-color ${activeLinkIndex === index ? 'active' : ''}`}>
-              <a className="block flex gap-3 items-center p-3" onClick={() => handleLinkClick(index)}>
-                {link.name}
-                <FontAwesomeIcon className="h-5 w-5" icon={link.icon} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
-  ) : null;
-};
-
-export default SideNavBar;
+  return (
+    <div className='relative pt-7 h-screen border-r z-10'>
+        <div className='absolute right-[-20px]'>
+            <Button variant='secondary' className='rounded-full p-2' onClick={() => setIsCollapsed(!isCollapsed)}>
+                {isCollapsed ? <ChevronRight /> : <ChevronLeft />}
+            </Button>
+        </div>
+        <Nav
+            isCollapsed={isCollapsed}
+            links={[
+              {
+                title: "Dashboard",
+                label: "",
+                href: '/',
+                icon: LayoutDashboard,
+                variant: "default",
+              },
+              {
+                title: "Domains",
+                label: "",
+                href: '/domains',
+                icon: Globe,
+                variant: "ghost",
+              },
+              {
+                title: "Projects",
+                label: "",
+                href: '/projects',
+                icon: FolderOpen,
+                variant: "ghost",
+              },
+              {
+                title: "Campaigns",
+                label: "",
+                href: '/campaign',
+                icon: Target,
+                variant: "ghost",
+              },
+              {
+                title: "Results",
+                label: "",
+                href: '/results-tab',
+                icon: ListChecks,
+                variant: "ghost",
+              },
+              {
+                title: "Profile",
+                label: "",
+                href: '/profile',
+                icon: User2,
+                variant: "ghost",
+              },
+              {
+                title: "Settings",
+                label: "",
+                href: '/settings',
+                icon: SlidersHorizontal,
+                variant: "ghost",
+              },
+            ]}
+          />
+    </div>
+  )
+}
