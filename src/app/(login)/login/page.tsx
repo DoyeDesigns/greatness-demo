@@ -9,11 +9,7 @@ import * as Yup from "yup";
 import { MoonLoader } from "react-spinners";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-config.autoAddCss = false;
+import {Eye, EyeOff} from 'lucide-react';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is Required"),
@@ -120,13 +116,13 @@ function Login() {
           ) : null}
           <span
             onClick={() => setIsVisible(!isVisible)}
-            className="size-5 cursor-pointer absolute top-1/4 right-2 z-10"
+            className="size-5 cursor-pointer absolute top-[10px] right-2 z-10"
           >
             {" "}
             {isVisible ? (
-              <FontAwesomeIcon className="h-5 w-5" icon={faEye} />
+              <Eye />
             ) : (
-              <FontAwesomeIcon className="h-5 w-5" icon={faEyeSlash} />
+              <EyeOff />
             )}
           </span>
         </div>

@@ -2,8 +2,11 @@
 
 import React, {useState} from 'react'
 import { Nav } from './nav'
+import { usePathname } from 'next/navigation'
 
 type Props = {}
+
+import { useWindowWidth } from '@react-hook/window-size'
 
 import {
     LayoutDashboard,
@@ -21,15 +24,20 @@ import { Button } from './ui/button'
 export default function SideNavBar({}: Props) {
     const [isCollapsed, setIsCollapsed] = useState(false);
 
-  return (
+    const currentPathName = usePathname();
+    const currentWindowWidth = useWindowWidth();
+    const mobileWidth = currentWindowWidth < 768;
+
+  if (currentPathName !== '/login') { 
+    return (
     <div className='relative pt-7 h-screen border-r z-10'>
-        <div className='absolute right-[-20px]'>
+        { !mobileWidth && (<div className='absolute right-[-20px]'>
             <Button variant='secondary' className='rounded-full p-2' onClick={() => setIsCollapsed(!isCollapsed)}>
                 {isCollapsed ? <ChevronRight /> : <ChevronLeft />}
             </Button>
-        </div>
+        </div>)}
         <Nav
-            isCollapsed={isCollapsed}
+            isCollapsed={ mobileWidth ? true : isCollapsed}
             links={[
               {
                 title: "Dashboard",
@@ -83,5 +91,7 @@ export default function SideNavBar({}: Props) {
             ]}
           />
     </div>
-  )
+  )}
+
+  return null;
 }
