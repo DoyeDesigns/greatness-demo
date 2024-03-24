@@ -9,7 +9,7 @@ import {
 
 function OthersTopProducts() {
   return (
-      <Card className="inline-block">
+      <Card>
         <CardHeader>
           <CardTitle>From Others</CardTitle>
           <CardDescription>Top 5 products</CardDescription>

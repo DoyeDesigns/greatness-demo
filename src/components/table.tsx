@@ -49,8 +49,8 @@ function DataTable({ data }: TableProps) {
             </TableCell>
             <TableCell>{data.end.toDateString()}</TableCell>
             <TableCell>
-              <div
-                className={`p-2 rounded-full text-center ${
+              <span
+                className={`py-2 px-4 rounded-full text-center ${
                   data.status === "Active"
                     ? "bg-green-500/25 text-green-700"
                     : data.status === "InActive"
@@ -61,10 +61,10 @@ function DataTable({ data }: TableProps) {
                 }`}
               >
                 {data.status}
-              </div>
+              </span>
             </TableCell>
-            <TableCell className="text-right">{data.log}</TableCell>
-            <TableCell className="text-right">{data.visits}</TableCell>
+            <TableCell>{data.log}</TableCell>
+            <TableCell>{data.visits}</TableCell>
           </TableRow>
         ))}
       </TableBody>

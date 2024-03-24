@@ -11,7 +11,7 @@ import BarChart from '../BarChart';
 export default function TopProducts
 () {
   return (
-    <Card className="inline-block">
+    <Card>
         <CardHeader>
           <CardTitle>Statistics</CardTitle>
           <CardDescription>Top 5 products</CardDescription>

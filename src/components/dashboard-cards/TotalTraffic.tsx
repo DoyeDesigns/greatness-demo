@@ -8,7 +8,7 @@ import {
 
 function TotalTraffic() {
   return (
-      <Card className="inline-block">
+      <Card>
         <CardHeader>
           <CardTitle>Total Traffic</CardTitle>
         </CardHeader>
