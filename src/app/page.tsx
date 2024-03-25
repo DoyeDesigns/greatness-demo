@@ -3,7 +3,7 @@ import SearchBar from "@/components/SearchSection";
 import TotalTraffic from "@/components/dashboard-cards/TotalTraffic";
 import TopProducts from "@/components/dashboard-cards/TopProducts";
 import OthersTopProducts from "@/components/dashboard-cards/OthersTopProducts";
-import DashboardTable from "@/components/dashboard-cards/Table";
+import DashboardTable from "@/components/dashboard-cards/ProductsCard";
 
 
 export default function Home() {

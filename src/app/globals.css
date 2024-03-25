@@ -51,9 +51,9 @@
   }
   
 
-body {
+/* body {
     @apply text-primary-color;
-}
+} */
 
 /* .active {
     @apply text-primary-color-hover font-bold bg-secondary-color border-l-4 border-primary-color;

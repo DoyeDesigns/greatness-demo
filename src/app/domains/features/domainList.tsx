@@ -25,8 +25,10 @@ function DomainsList({ domains }: DomainsProps) {
                     <CardContent className='flex justify-between items-center py-4 px-3'>
                         <Link href={`https://${domain.name}`} className='text-blue-400 inline-flex items-center gap-1'><LinkIcon size={15}/>{domain.name}</Link>
                         <p>{domain.description}</p>
-                        <Button variant={'outline'}>Settings</Button>
-                        <Button variant={'outline'} className='hover:text-white hover:border-none hover:bg-red-500'>Delete</Button>
+                        <div className='space-x-5'>
+                            <Button variant={'outline'}>Settings</Button>
+                            <Button variant={'outline'} className='hover:text-white hover:border-none hover:bg-red-500'>Delete</Button>
+                        </div>
                         <span
                         className={`py-2 px-4 rounded-full text-center ${
                             domain.status === "Active"

@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import DataTable from "../table";
+import DataTable from "../Table";
 
 const data = [
   {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Nav } from "./nav";
+import { Nav } from './Nav';
 import { usePathname } from "next/navigation";
 
 type Props = {};
@@ -32,7 +32,7 @@ export default function SideNavBar({}: Props) {
     return (
       <div
         className={`relative pt-7 h-screen border-r z-10 ${
-          isCollapsed ? "" : "w-[200px]"
+          isCollapsed || mobileWidth ? "" : "w-[200px]"
         }`}
       >
         {!mobileWidth && (
