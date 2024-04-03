@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import { Nav } from './Nav';
 import { usePathname } from "next/navigation";
 
-type Props = {};
-
 import { useWindowWidth } from "@react-hook/window-size";
 
 import {
@@ -21,7 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function SideNavBar({}: Props) {
+export default function SideNavBar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const currentPathName = usePathname();

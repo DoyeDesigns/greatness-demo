@@ -12,11 +12,13 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Avatar } from "@radix-ui/react-avatar";
+import { useCampaignStore } from "@/lib/store/campaign-store";
 
 type Props = {};
 
 interface Campaigns {
   campaign: {
+    id: string;
     img: string;
     campaignId: string;
     description: string;
@@ -39,6 +41,8 @@ const campaignIcons = [
 ];
 
 function CampaignList({ campaign }: Campaigns) {
+  const deleteCampaign = useCampaignStore((state) => state.deleteCampaign);
+
   return (
     <TooltipProvider>
       <div className="space-y-3">
@@ -54,7 +58,9 @@ function CampaignList({ campaign }: Campaigns) {
                   />
                   <AvatarFallback>logo</AvatarFallback>
                 </Avatar>
-                <p className="border rounded-md p-2">{campaign.campaignId}</p>
+                <p className="border rounded-md p-2 flex items-center">
+                  {campaign.campaignId}
+                </p>
               </div>
               <p>{campaign.description}</p>
 
@@ -64,12 +70,24 @@ function CampaignList({ campaign }: Campaigns) {
                     <Tooltip key={index}>
                       <TooltipTrigger asChild>
                         <span className="inline-flex gap-2 items-center">
-                          <Button className="bg-trasparent border-none p-0 h-0">
-                            <icon.icon
-                              color={`${icon.icon === X ? "red" : "black"}`}
-                              size={17}
-                            />
-                          </Button>
+                          {icon.icon === X ? (
+                            <Button
+                              onClick={() => deleteCampaign(campaign.id)}
+                              className="bg-trasparent border-none p-0 h-0"
+                            >
+                              <icon.icon
+                                color={'red'}
+                                size={17}
+                              />
+                            </Button>
+                          ) : (
+                            <Button className="bg-trasparent border-none p-0 h-0">
+                              <icon.icon
+                                color={'black'}
+                                size={17}
+                              />
+                            </Button>
+                          )}
                         </span>
                       </TooltipTrigger>
                       <TooltipContent>{icon.name}</TooltipContent>
@@ -77,7 +95,9 @@ function CampaignList({ campaign }: Campaigns) {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <Button variant={"outline"}><Copy size={15} color="black" className="mr-2"/> Copy link</Button>
+                  <Button variant={"outline"}>
+                    <Copy size={15} color="black" className="mr-2" /> Copy link
+                  </Button>
                   <Button variant={"outline"}>View</Button>
                 </div>
               </div>

@@ -9,7 +9,7 @@ import * as Yup from "yup";
 import { MoonLoader } from "react-spinners";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
-import {Eye, EyeOff} from 'lucide-react';
+import { Eye, EyeOff } from "lucide-react";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is Required"),
@@ -95,7 +95,7 @@ function Login() {
             <div className="text-xs text-red-500 mt-1">{errors.email}</div>
           ) : null}
         </div>
-        
+
         <div className="relative">
           <Input
             type={isVisible === true ? "text" : "password"}
@@ -119,11 +119,7 @@ function Login() {
             className="size-5 cursor-pointer absolute top-[10px] right-2 z-10"
           >
             {" "}
-            {isVisible ? (
-              <Eye />
-            ) : (
-              <EyeOff />
-            )}
+            {isVisible ? <Eye /> : <EyeOff />}
           </span>
         </div>
 
@@ -133,7 +129,7 @@ function Login() {
             name="rememberMe"
             onChange={handleChange}
             className="border-white"
-            id="remeber-me"
+            id="remember-me"
           />
           <label htmlFor="remeber-me" className="text-white">
             Remember me

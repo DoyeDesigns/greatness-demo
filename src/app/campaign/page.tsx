@@ -1,23 +1,16 @@
+"use client"
+
 import SearchSection from '@/components/SearchSection'
 import { Button } from '@/components/ui/button'
 import { Plus } from 'lucide-react'
 import React from 'react'
 import CampaignList from './features/CampaignList'
-
-const data = [
-  {
-    img: 'https://github.com/shadcn.png',
-    campaignId: 'dfg56-YT67',
-    description: 'tctyy giyfg ygfeigf',
-  },
-  {
-    img: 'https://github.com/shadcn.png',
-    campaignId: 'dfg56-YHN8',
-    description: 'tctyy giyfg',
-  },
-]
+import { useCampaignStore } from '@/lib/store/campaign-store'
 
 function Campaign() {
+
+  const Campaigns = useCampaignStore((state) => state.campaigns);
+
   return (
     <main className="px-3 py-20 h-screen overflow-auto">
         <SearchSection header='Campaigns'/>
@@ -25,7 +18,7 @@ function Campaign() {
         <div className='flex justify-end mb-10'>
           <Button><Plus /> Create New Campaign</Button>
         </div>
-          <CampaignList campaign={data} />
+          <CampaignList campaign={Campaigns} />
         </section>
     </main>
   )
