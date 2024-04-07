@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/tooltip";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-// import { Link } from "nextjs13-progress";
 
 interface NavProps {
   isCollapsed: boolean;
