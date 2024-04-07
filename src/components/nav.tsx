@@ -1,6 +1,6 @@
 "use client";
 
-// import Link from "next/link";
+import Link from "next/link";
 import { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/tooltip";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { Link } from "nextjs13-progress";
+// import { Link } from "nextjs13-progress";
 
 interface NavProps {
   isCollapsed: boolean;

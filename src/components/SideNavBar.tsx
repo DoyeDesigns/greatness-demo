@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Nav } from './Nav';
+import { Nav } from "./nav";
 import { usePathname } from "next/navigation";
 
 import { useWindowWidth } from "@react-hook/window-size";
