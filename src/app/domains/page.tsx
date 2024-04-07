@@ -4,7 +4,7 @@ import SearchSection from "@/components/SearchSection";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { Plus } from "lucide-react";
-import DomainsList from "./features/DomainList";
+import DomainsList from "./features/domainList";
 import { useDomainStore } from "@/lib/store/domain-store";
 import {
   Popover,
