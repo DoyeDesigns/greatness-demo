@@ -5,6 +5,7 @@ import SideNavBar from "@/components/SideNavBar";
 import { Toaster } from "@/components/ui/toaster"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LoaderProvider from "@/components/LoaderProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <LoaderProvider>
         <Header />
         <div className="flex">
           <div>
@@ -33,6 +35,7 @@ export default function RootLayout({
         </div>
         <Toaster />
         <Footer />
+        </LoaderProvider>
       </body>
     </html>
   );
